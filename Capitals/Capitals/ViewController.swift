@@ -9,9 +9,13 @@
 import MapKit
 import UIKit
 
-class ViewController: UIViewController
+class ViewController: UIViewController, MKMapViewDelegate
 {
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var mapView: MKMapView! {
+        didSet {
+            mapView.delegate = self
+        }
+    }
     
     override func viewDidLoad()
     {
@@ -24,6 +28,47 @@ class ViewController: UIViewController
         let washington = Capital(title: "Washington DC", coordinate: CLLocationCoordinate2D(latitude: 38.895111, longitude: -77.036667), info: "Named after George himself.")
         
         mapView.addAnnotations([london, oslo, paris, rome, washington])
+    }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
+    {
+        let identifier = "Capital"
+        
+        if annotation.isKindOfClass(Capital.self)
+        {
+            var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+            
+            // if it cant find one just create a new one
+            if annotationView == nil
+            {
+                annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                annotationView!.canShowCallout = true
+                
+                let btn = UIButton(type: .DetailDisclosure)
+                annotationView!.rightCalloutAccessoryView = btn
+                
+            }
+            else
+            {
+                annotationView!.annotation = annotation
+            }
+            
+            return annotationView
+        }
+        
+        // let ios use a default view
+        return nil
+    }
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl)
+    {
+        let capital = view.annotation as! Capital
+        let placeName = capital.title
+        let placeInfo = capital.info
+        
+        let ac = UIAlertController(title: placeName, message: placeInfo, preferredStyle: .Alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        presentViewController(ac, animated: true, completion: nil)
     }
 }
 

@@ -12,6 +12,8 @@
 		DA0BA1041C654D8E004A8D3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA0BA1021C654D8E004A8D3D /* Main.storyboard */; };
 		DA0BA1061C654D8E004A8D3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA0BA1051C654D8E004A8D3D /* Assets.xcassets */; };
 		DA0BA1091C654D8E004A8D3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA0BA1071C654D8E004A8D3D /* LaunchScreen.storyboard */; };
+		DA0BA1111C654F63004A8D3D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0BA1101C654F63004A8D3D /* MapKit.framework */; };
+		DA0BA1131C65505C004A8D3D /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0BA1121C65505C004A8D3D /* Capital.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		DA0BA1051C654D8E004A8D3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA0BA1081C654D8E004A8D3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA0BA10A1C654D8E004A8D3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA0BA1101C654F63004A8D3D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		DA0BA1121C65505C004A8D3D /* Capital.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA0BA1111C654F63004A8D3D /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +43,7 @@
 		DA0BA0F21C654D8E004A8D3D = {
 			isa = PBXGroup;
 			children = (
+				DA0BA1101C654F63004A8D3D /* MapKit.framework */,
 				DA0BA0FD1C654D8E004A8D3D /* Capitals */,
 				DA0BA0FC1C654D8E004A8D3D /* Products */,
 			);
@@ -60,6 +66,7 @@
 				DA0BA1051C654D8E004A8D3D /* Assets.xcassets */,
 				DA0BA1071C654D8E004A8D3D /* LaunchScreen.storyboard */,
 				DA0BA10A1C654D8E004A8D3D /* Info.plist */,
+				DA0BA1121C65505C004A8D3D /* Capital.swift */,
 			);
 			path = Capitals;
 			sourceTree = "<group>";
@@ -97,6 +104,11 @@
 					DA0BA0FA1C654D8E004A8D3D = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = W47B9DA9HK;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -138,6 +150,7 @@
 			files = (
 				DA0BA1011C654D8E004A8D3D /* ViewController.swift in Sources */,
 				DA0BA0FF1C654D8E004A8D3D /* AppDelegate.swift in Sources */,
+				DA0BA1131C65505C004A8D3D /* Capital.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
